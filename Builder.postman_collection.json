@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "c99dcd7f-1515-4228-9e01-e3ab5b8cbfae",
+		"name": "Builder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38028763"
+	},
+	"item": [
+		{
+			"name": "projects",
+			"item": [
+				{
+					"name": "Get All Projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{builder_base_url}}/project",
+							"host": [
+								"{{builder_base_url}}"
+							],
+							"path": [
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Project",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Nyar-Ugenya home\",\r\n    \"description\": \"A retirement Home\",\r\n    \"location\": \"Kisumu\",\r\n    \"cost\": 25000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{builder_base_url}}/project",
+							"host": [
+								"{{builder_base_url}}"
+							],
+							"path": [
+								"project"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "A collection of projects endpoints\n\n1. Create Project\n    \n2. Get All Projects"
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Bas\",\r\n    \"password\": \"123\",\r\n    \"email\":\"bas@host.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{auth_url}}/register",
+							"host": [
+								"{{auth_url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Bas\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{auth_url}}/token",
+							"host": [
+								"{{auth_url}}"
+							],
+							"path": [
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate-token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{auth_url}}/validate-token?token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJCYXMiLCJpYXQiOjE3Mjc4MjI2ODgsImV4cCI6MTcyNzgyNDQ4OH0.72EKI2ADWQRPJ91nWd4eFJWCnkd0rt9c97n0Wp_fwI4",
+							"host": [
+								"{{auth_url}}"
+							],
+							"path": [
+								"validate-token"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJCYXMiLCJpYXQiOjE3Mjc4MjI2ODgsImV4cCI6MTcyNzgyNDQ4OH0.72EKI2ADWQRPJ91nWd4eFJWCnkd0rt9c97n0Wp_fwI4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "builder_base_url",
+			"value": "http://localhost:8080/api",
+			"type": "string"
+		},
+		{
+			"key": "auth_url",
+			"value": "http://localhost:8080/auth",
+			"type": "string"
+		}
+	]
+}
