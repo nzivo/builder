@@ -1,7 +1,7 @@
 package com.batedesigns.project_service.repository;
 
 import com.batedesigns.project_service.model.Project;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProjectRepository extends MongoRepository<Project, String> {
+public interface ProjectRepository extends JpaRepository<Project, String> {
 }

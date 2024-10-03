@@ -12,9 +12,11 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProjectResponse {
-    private String id;
+    private Long id;
     private String name;
     private String description;
     private String location;
     private BigDecimal cost;
+    private Long owner_id;
+    private Long manager_id;
 }
