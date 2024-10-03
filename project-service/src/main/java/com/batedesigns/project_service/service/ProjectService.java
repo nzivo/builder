@@ -41,6 +41,8 @@ public class ProjectService {
                 .description(project.getDescription())
                 .location(project.getLocation())
                 .cost(project.getCost())
+                .owner_id(project.getOwner_id())
+                .manager_id(project.getManager_id())
                 .build();
     }
 }
