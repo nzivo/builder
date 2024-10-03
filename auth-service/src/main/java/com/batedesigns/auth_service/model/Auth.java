@@ -1,22 +1,38 @@
 package com.batedesigns.auth_service.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.UUID;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "users")
 public class Auth {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Setter
+    @Getter
+    private String firstName;
+    @Setter
+    @Getter
+    private String lastName;
+    @Setter
+    @Getter
+    private String username;
+    @Setter
+    @Getter
     private String email;
+    @Getter
+    @Setter
     private String password;
-    private String name;
+
+    @Setter
+    @Getter
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
 }
