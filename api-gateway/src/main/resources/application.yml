@@ -3,25 +3,34 @@ spring:
     name: GATEWAY_SERVICE
   cloud:
     gateway:
-      mvc:
-        routes:
-          - id:
-              auth-service
-            uri:
-              lb://AUTH-SERVICE
-            predicates:
-              - Path=/auth/**
-          - id:
-              project-service
-            uri:
-              lb://PROJECT-SERVICE
-            predicates:
-              - Path=/api/project/**
+      routes:
+        - id:
+            auth-service
+          uri:
+            lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth/**
+        - id:
+            project-service
+          uri:
+            lb://PROJECT-SERVICE
+          predicates:
+            - Path=/api/project/**
+          filters:
+            - AuthFilter
 
 eureka:
   client:
     service-url:
       defaultZone : http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+    hostname: localhost
 
 server:
   port: 8080
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.web: DEBUG
